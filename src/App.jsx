@@ -1,6 +1,7 @@
 import { useState } from "react";
 import NavBar from "./components/NavBar";
 import ItemListContainer from "./components/ItemListContainer";
+import "../src/styles/styles.css";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -8,7 +9,7 @@ function App() {
   return (
     <>
       <NavBar count={count} setCount={setCount} />
-      <ItemListContainer greeting=" Este es un mensaje.. " />
+      <ItemListContainer count={count} setCount={setCount} />
     </>
   );
 }

@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/navbar.css";
 import CartWidget from "./cartWidget";
 
-const NavBar = ({ count, setCount }) => {
+const NavBar = ({ count }) => {
   return (
     <ul>
       <li>
@@ -14,12 +14,15 @@ const NavBar = ({ count, setCount }) => {
         <a href="#news">News</a>
       </li>
       <li>
+        <a href="#news">Products</a>
+      </li>
+      <li>
         <a href="#contact">Contact</a>
       </li>
       <li>
         <a href="#about">About</a>
       </li>
-      <CartWidget count setCount />
+      <CartWidget count={count} />
     </ul>
   );
 };

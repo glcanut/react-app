@@ -1,12 +1,16 @@
-const ItemListContainer = ({ greeting, count, setCount }) => {
+import products from "../assets/mock_data.json";
+import Item from "./Item";
+import ItemList from "./ItemList";
+
+const ItemListContainer = ({ count, setCount }) => {
   const handleClick = () => {
-    setCount((count = count + 1));
+    setCount((prevCount) => prevCount + 1);
   };
 
   return (
     <>
-      <div>{greeting}</div>
-      <button onClick={handleClick}>Agregar al carrito</button>
+      <ItemList products={products} count={count} />
+      {/* <button onClick={handleClick}>Agregar al carrito</button> */}
     </>
   );
 };

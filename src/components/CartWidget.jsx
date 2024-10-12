@@ -1,7 +1,7 @@
 import { useState } from "react";
 import cart from "../assets/cart.svg";
 
-const CartWidget = ({ count, setCount }) => {
+const CartWidget = ({ count }) => {
   return (
     <>
       <div style={{ float: "right", color: "white", padding: 5 }}>
