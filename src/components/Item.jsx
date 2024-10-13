@@ -6,7 +6,7 @@ const Item = ({ item }) => {
     <>
       <div className="card-item">
         <img src={item.image} alt="Card Image" />
-        <span className="developer">Developer</span>
+        <span className="developer">{item.genre}</span>
         <h3>{item.title}</h3>
         <span>{item.price}</span>
         <ItemCount stock={10} initial={1}></ItemCount>

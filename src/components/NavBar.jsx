@@ -1,29 +1,45 @@
 import React from "react";
-import "../styles/navbar.css";
+import styles from "../styles/navbar.module.css";
 import CartWidget from "./cartWidget";
+import { Link, NavLink } from "react-router-dom";
 
 const NavBar = ({ count }) => {
   return (
-    <ul>
-      <li>
-        <a className="active" href="#home">
-          Home
-        </a>
-      </li>
-      <li>
-        <a href="#news">News</a>
-      </li>
-      <li>
-        <a href="#news">Products</a>
-      </li>
-      <li>
-        <a href="#contact">Contact</a>
-      </li>
-      <li>
-        <a href="#about">About</a>
-      </li>
-      <CartWidget count={count} />
-    </ul>
+    <nav>
+      <ul>
+        <li>
+          <NavLink
+            className={({ isActive }) => {
+              return isActive ? styles.isActive : "";
+            }}
+            to={"/"}
+          >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            className={({ isActive }) => {
+              return isActive ? styles.isActive : "";
+            }}
+            to={"/products"}
+          >
+            Products
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            className={({ isActive }) => {
+              return isActive ? styles.isActive : "";
+            }}
+            to="/category/fiction"
+          >
+            Fiction
+          </NavLink>
+        </li>
+        <CartWidget count={count} />
+      </ul>
+    </nav>
   );
 };
 
