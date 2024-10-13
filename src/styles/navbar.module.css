@@ -18,10 +18,10 @@ li a {
     text-decoration: none;
 }
 
-li a:hover:not(.active) {
+li a:hover:not(.isActive) {
     background-color: #111;
 }
 
-.active {
+.isActive {
     background-color: #04AA6D;
 }
