@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import cart from "../assets/cart.svg";
+import { Cart as CartContext } from "../context/CartProvider";
 
-const CartWidget = ({ count }) => {
+const CartWidget = () => {
+  const { totalQuantity } = useContext(CartContext);
+
   return (
     <>
       <div style={{ float: "right", color: "white", padding: 5 }}>
-        ({count})
+        ({totalQuantity()})
       </div>
       <img src={cart} alt="Cart" style={{ width: 40, float: "right" }} />
     </>

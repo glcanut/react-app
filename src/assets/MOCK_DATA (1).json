@@ -1,0 +1,222 @@
+[
+  {
+    "title": "Divorce - Italian Style (Divorzio all'italiana)",
+    "author": "Gloria Davis",
+    "genre": "non-fiction",
+    "isbn": "954361668-X",
+    "page_count": 978,
+    "publisher": "Zoomzone",
+    "price": "$56.60",
+    "format": "hardcover",
+    "stock": 11
+  },
+  {
+    "title": "A Night for Dying Tigers",
+    "author": "Ruggiero Hearty",
+    "genre": "fiction",
+    "isbn": "354189205-6",
+    "page_count": 232,
+    "publisher": "Voolia",
+    "price": "$92.47",
+    "format": "paperback",
+    "stock": 13
+  },
+  {
+    "title": "Children of Invention",
+    "author": "Dallis Lukins",
+    "genre": "fiction",
+    "isbn": "743579276-4",
+    "page_count": 744,
+    "publisher": "LiveZ",
+    "price": "$72.30",
+    "format": "paperback",
+    "stock": 8
+  },
+  {
+    "title": "Shifty",
+    "author": "Ysabel Truse",
+    "genre": "fiction",
+    "isbn": "484125771-3",
+    "page_count": 133,
+    "publisher": "Browsetype",
+    "price": "$24.30",
+    "format": "ebook",
+    "stock": 7
+  },
+  {
+    "title": "Hell Comes to Frogtown",
+    "author": "Brandyn McGuirk",
+    "genre": "romance",
+    "isbn": "832430144-5",
+    "page_count": 120,
+    "publisher": "Bluezoom",
+    "price": "$25.58",
+    "format": "paperback",
+    "stock": 16
+  },
+  {
+    "title": "Fly, The",
+    "author": "Jo Sommerlin",
+    "genre": "non-fiction",
+    "isbn": "497927232-0",
+    "page_count": 409,
+    "publisher": "Flipopia",
+    "price": "$37.57",
+    "format": "paperback",
+    "stock": 13
+  },
+  {
+    "title": "Made in Britain",
+    "author": "Zacherie Phare",
+    "genre": "romance",
+    "isbn": "428972700-X",
+    "page_count": 361,
+    "publisher": "Talane",
+    "price": "$36.48",
+    "format": "paperback",
+    "stock": 5
+  },
+  {
+    "title": "Stavisky...",
+    "author": "Constantin Huegett",
+    "genre": "mystery",
+    "isbn": "143810512-6",
+    "page_count": 597,
+    "publisher": "Demimbu",
+    "price": "$92.14",
+    "format": "paperback",
+    "stock": 6
+  },
+  {
+    "title": "Seven Girlfriends",
+    "author": "Moritz MacClay",
+    "genre": "mystery",
+    "isbn": "624708349-1",
+    "page_count": 259,
+    "publisher": "Quatz",
+    "price": "$51.50",
+    "format": "ebook",
+    "stock": 5
+  },
+  {
+    "title": "Guys and Dolls",
+    "author": "Tracie Neathway",
+    "genre": "non-fiction",
+    "isbn": "252697443-7",
+    "page_count": 104,
+    "publisher": "Feedfish",
+    "price": "$59.18",
+    "format": "hardcover",
+    "stock": 19
+  },
+  {
+    "title": "Silent Wedding (Nunta Muta)",
+    "author": "Celinka Leys",
+    "genre": "fiction",
+    "isbn": "798640262-8",
+    "page_count": 814,
+    "publisher": "Realpoint",
+    "price": "$92.61",
+    "format": "ebook",
+    "stock": 17
+  },
+  {
+    "title": "Karate Kid, The",
+    "author": "Sibley Boog",
+    "genre": "fiction",
+    "isbn": "971621762-5",
+    "page_count": 765,
+    "publisher": "Bubbletube",
+    "price": "$73.54",
+    "format": "ebook",
+    "stock": 4
+  },
+  {
+    "title": "Catwoman",
+    "author": "Aurelie Humpherson",
+    "genre": "fiction",
+    "isbn": "049214311-0",
+    "page_count": 72,
+    "publisher": "Browseblab",
+    "price": "$66.92",
+    "format": "ebook",
+    "stock": 17
+  },
+  {
+    "title": "David Holzman's Diary",
+    "author": "Alexandro Hoyle",
+    "genre": "non-fiction",
+    "isbn": "365493758-6",
+    "page_count": 401,
+    "publisher": "Feedfish",
+    "price": "$64.77",
+    "format": "hardcover",
+    "stock": 15
+  },
+  {
+    "title": "To the Arctic",
+    "author": "Sonni Gumey",
+    "genre": "romance",
+    "isbn": "861605783-8",
+    "page_count": 867,
+    "publisher": "Skinix",
+    "price": "$59.85",
+    "format": "hardcover",
+    "stock": 2
+  },
+  {
+    "title": "Eastern Plays",
+    "author": "Em Southwell",
+    "genre": "fiction",
+    "isbn": "589522907-7",
+    "page_count": 662,
+    "publisher": "Ntags",
+    "price": "$86.66",
+    "format": "hardcover",
+    "stock": 9
+  },
+  {
+    "title": "Holes in My Shoes",
+    "author": "Alexei Glayzer",
+    "genre": "fiction",
+    "isbn": "312096402-6",
+    "page_count": 915,
+    "publisher": "Skipstorm",
+    "price": "$13.82",
+    "format": "ebook",
+    "stock": 8
+  },
+  {
+    "title": "Emma",
+    "author": "Christan Malyon",
+    "genre": "fiction",
+    "isbn": "915320664-9",
+    "page_count": 729,
+    "publisher": "Twimm",
+    "price": "$13.21",
+    "format": "paperback",
+    "stock": 5
+  },
+  {
+    "title": "Gotti",
+    "author": "Nikolaos Manske",
+    "genre": "non-fiction",
+    "isbn": "871673878-0",
+    "page_count": 413,
+    "publisher": "Livefish",
+    "price": "$41.91",
+    "format": "paperback",
+    "stock": 18
+  },
+  {
+    "title": "Richard III",
+    "author": "Hasty Temblett",
+    "genre": "fiction",
+    "isbn": "263146237-8",
+    "page_count": 567,
+    "publisher": "Gigabox",
+    "price": "$57.18",
+    "format": "hardcover",
+    "stock": 13
+  }
+]

@@ -8,8 +8,10 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-body {
-    background: #ecececdb;
+
+.containerColor {
+    background: #444343db;
+    color: white;
 }
 
 .card-list {
@@ -93,6 +95,15 @@ body {
 .card-list .card-item:hover .arrow {
     background: #000;
     color: #fff;
+}
+
+.formContainer {
+    margin: 20px;
+}
+
+.buttonStyle {
+    color: white;
+    text-decoration: none;
 }
 
 @media (max-width: 1200px) {

@@ -3,7 +3,7 @@ import styles from "../styles/navbar.module.css";
 import CartWidget from "./cartWidget";
 import { Link, NavLink } from "react-router-dom";
 
-const NavBar = ({ count }) => {
+const NavBar = () => {
   return (
     <nav>
       <ul>
@@ -22,9 +22,9 @@ const NavBar = ({ count }) => {
             className={({ isActive }) => {
               return isActive ? styles.isActive : "";
             }}
-            to={"/products"}
+            to={"/category/romance"}
           >
-            Products
+            Romance
           </NavLink>
         </li>
         <li>
@@ -32,12 +32,12 @@ const NavBar = ({ count }) => {
             className={({ isActive }) => {
               return isActive ? styles.isActive : "";
             }}
-            to="/category/fiction"
+            to="/category/fantasy"
           >
-            Fiction
+            Fantasy
           </NavLink>
         </li>
-        <CartWidget count={count} />
+        <CartWidget />
       </ul>
     </nav>
   );
