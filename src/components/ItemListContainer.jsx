@@ -1,8 +1,9 @@
-import mockProducts from "../assets/mock_data.json";
+import { db } from "../firebase/config";
 import Item from "./Item";
 import ItemList from "./ItemList";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 const ItemListContainer = ({ count, setCount }) => {
   const handleClick = () => {
@@ -14,21 +15,35 @@ const ItemListContainer = ({ count, setCount }) => {
   const { categoryId } = useParams();
 
   useEffect(() => {
-    let productsFiltered;
-    if (categoryId) {
-      productsFiltered = mockProducts.filter(
-        (product) => product.genre === categoryId
-      );
-    } else {
-      productsFiltered = mockProducts;
-    }
-    setProducts(productsFiltered);
+    (async () => {
+      try {
+        let productsFiltered = [];
+        if (categoryId) {
+          const q = query(
+            collection(db, "products"),
+            where("genre", "==", categoryId)
+          );
+
+          const querySnapshot = await getDocs(q);
+          querySnapshot.forEach((doc) => {
+            productsFiltered.push({ id: doc.id, ...doc.data() });
+          });
+        } else {
+          const querySnapshot = await getDocs(collection(db, "products"));
+          querySnapshot.forEach((doc) => {
+            productsFiltered.push({ id: doc.id, ...doc.data() });
+          });
+        }
+        setProducts(productsFiltered);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
   }, [categoryId]);
 
   return (
     <>
       <ItemList products={products} count={count} />
-      {/* <button onClick={handleClick}>Agregar al carrito</button> */}
     </>
   );
 };

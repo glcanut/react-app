@@ -1,8 +1,9 @@
 import React from "react";
 import { useState } from "react";
+import { Button } from "react-bootstrap";
 
-const ItemCount = ({ stock, initial, onAdd }) => {
-  const [count, setCount] = useState(initial);
+const ItemCount = ({ stock, initial, addCart }) => {
+  const [count, setCount] = useState(0);
 
   const addProduct = () => {
     setCount((count) => count + 1);
@@ -14,31 +15,34 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
   return (
     <div>
-      <div className="count-container__contador">
-        <button
-          className="count-container__button"
+      <div className="">
+        <Button
+          variant="outline-info"
+          className="m-2"
           onClick={removeProduct}
-          disabled={count === initial}
+          disabled={count === 0}
         >
           -
-        </button>
-        <span className="count-container__qty">{count}</span>
-        <button
-          className="count-container__button"
+        </Button>
+        <span className="">{count}</span>
+        <Button
+          variant="outline-info"
+          className="m-2"
           onClick={addProduct}
           disabled={count === stock}
         >
           +
-        </button>
+        </Button>
       </div>
 
-      <button
-        className="button-primary"
-        onClick={() => onAdd(count)}
+      <Button
+        className="m-2"
+        variant="primary"
+        onClick={() => addCart(count)}
         disabled={stock === 0 ? true : null}
       >
         Add
-      </button>
+      </Button>
     </div>
   );
 };
