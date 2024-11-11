@@ -1,17 +1,23 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Button, Col, Form, NavLink, Row } from "react-bootstrap";
+import { Button, Col, Form, Row } from "react-bootstrap";
 import endPurchase from "../services/endPurchase";
 import { Cart as CartContext } from "../context/CartProvider";
 import styles from "../styles/checkout.module.css";
+import { NavLink } from "react-router-dom";
 
 const Checkout = () => {
   const [inputName, setInputName] = useState("");
+  const [inputLastName, setInputLastName] = useState("");
   const [inputPhone, setInputPhone] = useState(0);
   const [inputEmail, setInputEmail] = useState("");
 
   const [modalVisible, setModalVisible] = useState(false);
+  const [modalErrorVisible, setModalErrorVisible] = useState(false);
 
-  const { cart } = useContext(CartContext);
+  //validation form
+  const [validated, setValidated] = useState(false);
+
+  const { cart, totalCost } = useContext(CartContext);
 
   useEffect(() => {
     const handleEscapeModal = (e) => {
@@ -28,15 +34,25 @@ const Checkout = () => {
   }, []);
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    setInputName(inputName);
-    setInputEmail(inputEmail);
-    setInputPhone(inputPhone);
-    setModalVisible(true);
+    if (
+      inputName !== "" &&
+      inputLastName !== "" &&
+      inputPhone !== "" &&
+      inputEmail !== ""
+    ) {
+      event.preventDefault();
+      setInputName(inputName);
+      setInputEmail(inputEmail);
+      setInputPhone(inputPhone);
+      setModalVisible(true);
+    } else {
+      event.preventDefault();
+      setModalErrorVisible(true);
+    }
   };
 
   const finishOrder = () => {
-    endPurchase(cart, inputName, inputEmail, inputPhone);
+    endPurchase(cart, inputName, inputEmail, inputPhone, totalCost);
     setModalVisible(false);
   };
 
@@ -44,7 +60,7 @@ const Checkout = () => {
     <>
       <div className="formContainer">
         <h1>Checkout</h1>
-        <Form>
+        <Form noValidate validated={validated}>
           <Row className="mb-3">
             <Form.Group as={Col} controlId="formFirstName">
               <Form.Label>Name</Form.Label>
@@ -53,12 +69,25 @@ const Checkout = () => {
                 type="text"
                 value={inputName}
                 onChange={(event) => setInputName(event.target.value)}
+                required
               />
+              <Form.Control.Feedback type="invalid">
+                Please provide a name.
+              </Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group as={Col} controlId="formLastName">
               <Form.Label>Last Name</Form.Label>
-              <Form.Control placeholder="Last name" type="text" />
+              <Form.Control
+                placeholder="Last name"
+                type="text"
+                value={inputLastName}
+                onChange={(event) => setInputLastName(event.target.value)}
+                required
+              />
+              <Form.Control.Feedback type="invalid">
+                Please provide a last name.
+              </Form.Control.Feedback>
             </Form.Group>
           </Row>
 
@@ -69,7 +98,11 @@ const Checkout = () => {
               type="phone"
               value={inputPhone}
               onChange={(event) => setInputPhone(event.target.value)}
+              required
             />
+            <Form.Control.Feedback type="invalid">
+              Please provide a phone.
+            </Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formGroupEmail">
@@ -79,20 +112,34 @@ const Checkout = () => {
               placeholder="Enter email"
               value={inputEmail}
               onChange={(event) => setInputEmail(event.target.value)}
+              required
             />
+            <Form.Control.Feedback type="invalid">
+              Please provide a email.
+            </Form.Control.Feedback>
           </Form.Group>
-        </Form>
-        <div>
           <Button onClick={handleSubmit} variant="primary" type="submit">
             Submit
           </Button>
-        </div>
+        </Form>
       </div>
       {modalVisible && (
         <div className={styles.modalContainer}>
           <div className={styles.modal}>
             <h1>Order created successfully</h1>
-            <Button onClick={finishOrder}>OK</Button>
+            <Button onClick={finishOrder}>
+              <NavLink to={"/"} className="buttonStyle">
+                OK
+              </NavLink>
+            </Button>
+          </div>
+        </div>
+      )}
+      {modalErrorVisible && (
+        <div className={styles.modalContainer}>
+          <div className={styles.modal}>
+            <h1>Please complete all the forms</h1>
+            <Button onClick={() => setModalErrorVisible(false)}>OK</Button>
           </div>
         </div>
       )}

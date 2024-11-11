@@ -7,7 +7,13 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase/config";
 
-const endPurchase = async (cart, inputName, inputEmail, inputPhone) => {
+const endPurchase = async (
+  cart,
+  inputName,
+  inputEmail,
+  inputPhone,
+  totalCost
+) => {
   const productsToUpdateRefs = [];
 
   // Create an array of references to all the products in cart.
@@ -78,9 +84,10 @@ const endPurchase = async (cart, inputName, inputEmail, inputPhone) => {
           phone: inputPhone,
         },
         tiemstamp: serverTimestamp(),
-        total: cartTotal,
+        total: toString(totalCost),
       };
       addDoc(orderCollectionRef, order);
+      console.log("Order created successfully!", orderCollectionRef.id);
       return order;
     });
   } catch (e) {
