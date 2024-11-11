@@ -13,6 +13,8 @@ const ItemCount = ({ stock, initial, addCart }) => {
     setCount((count) => count - 1);
   };
 
+  const buttonState = count > 0;
+
   return (
     <div>
       <div className="">
@@ -38,8 +40,8 @@ const ItemCount = ({ stock, initial, addCart }) => {
       <Button
         className="m-2"
         variant="primary"
+        disabled={!buttonState}
         onClick={() => addCart(count)}
-        disabled={stock === 0 ? true : null}
       >
         Add
       </Button>
