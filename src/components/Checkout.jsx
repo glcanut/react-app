@@ -10,6 +10,7 @@ const Checkout = () => {
   const [inputLastName, setInputLastName] = useState("");
   const [inputPhone, setInputPhone] = useState(0);
   const [inputEmail, setInputEmail] = useState("");
+  const [orderid, setOrderId] = useState("");
 
   const [modalVisible, setModalVisible] = useState(false);
   const [modalErrorVisible, setModalErrorVisible] = useState(false);
@@ -33,7 +34,7 @@ const Checkout = () => {
     };
   }, []);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     if (
       inputName !== "" &&
       inputLastName !== "" &&
@@ -41,9 +42,19 @@ const Checkout = () => {
       inputEmail !== ""
     ) {
       event.preventDefault();
-      setInputName(inputName);
-      setInputEmail(inputEmail);
-      setInputPhone(inputPhone);
+      // setInputName(inputName);
+      // setInputEmail(inputEmail);
+      // setInputPhone(inputPhone);
+      const orderGenerated = await endPurchase(
+        cart,
+        inputName,
+        inputEmail,
+        inputPhone,
+        totalCost
+      );
+      // ).then(({ id }) => setOrderId(id));
+      console.log(orderGenerated);
+      setOrderId(orderGenerated);
       setModalVisible(true);
     } else {
       event.preventDefault();
@@ -52,7 +63,6 @@ const Checkout = () => {
   };
 
   const finishOrder = () => {
-    endPurchase(cart, inputName, inputEmail, inputPhone, totalCost);
     setModalVisible(false);
   };
 
@@ -90,7 +100,6 @@ const Checkout = () => {
               </Form.Control.Feedback>
             </Form.Group>
           </Row>
-
           <Form.Group className="mb-3" controlId="formPhone">
             <Form.Label>Phone</Form.Label>
             <Form.Control
@@ -104,7 +113,6 @@ const Checkout = () => {
               Please provide a phone.
             </Form.Control.Feedback>
           </Form.Group>
-
           <Form.Group className="mb-3" controlId="formGroupEmail">
             <Form.Label>Email Address</Form.Label>
             <Form.Control
@@ -127,6 +135,7 @@ const Checkout = () => {
         <div className={styles.modalContainer}>
           <div className={styles.modal}>
             <h1>Order created successfully</h1>
+            <span>Order number: {orderid}</span>
             <Button onClick={finishOrder}>
               <NavLink to={"/"} className="buttonStyle">
                 OK
