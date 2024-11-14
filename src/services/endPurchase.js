@@ -76,7 +76,7 @@ const endPurchase = async (
       }
 
       //3. Creates the order, no id is given
-      const order = {
+      const orderData = {
         products: { ...cart },
         user: {
           name: inputName,
@@ -86,9 +86,8 @@ const endPurchase = async (
         tiemstamp: serverTimestamp(),
         total: toString(totalCost),
       };
-      addDoc(orderCollectionRef, order);
-      console.log("Order created successfully!", orderCollectionRef.id);
-      return order;
+      const orderAdded = await addDoc(orderCollectionRef, orderData);
+      return orderAdded.id;
     });
   } catch (e) {
     //Any throw in try block will be caught
