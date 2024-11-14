@@ -89,6 +89,7 @@ const endPurchase = async (
       const orderAdded = await addDoc(orderCollectionRef, orderData);
       return orderAdded.id;
     });
+    return order;
   } catch (e) {
     //Any throw in try block will be caught
     console.error(e);
